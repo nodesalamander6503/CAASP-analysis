@@ -1,0 +1,11 @@
+OLS: CAASP_SCORE ~ Latitude + Longitude
+
+     term     estimate  std_error     t_stat  p_value
+Intercept -1085.790161  83.629112 -12.983399      0.0
+ Latitude   -13.697225   0.854880 -16.022402      0.0
+Longitude   -12.756998   0.928195 -13.743880      0.0
+
+n = 9338
+df_resid = 9335
+SSE = 45119523.00035347
+R^2 = 0.0274723596095392

@@ -1,0 +1,736 @@
+County,District,avg_caasp,n
+Santa Clara,Saratoga Union Elementary,99.45,4
+San Mateo,Hillsborough City Elementary,99.4,4
+Santa Clara,Los Altos Elementary,96.76666666666667,9
+Santa Clara,Fremont Union High,91.3,5
+San Mateo,Las Lomitas Elementary,91.19999999999999,2
+Los Angeles,San Marino Unified,90.125,4
+Los Angeles,La Canada Unified,88.05,4
+San Mateo,Portola Valley Elementary,87.1,2
+Santa Clara,Cupertino Union,85.15217391304348,23
+San Diego,Rancho Santa Fe Elementary,84.75,2
+Santa Clara,Palo Alto Unified,78.26842105263158,19
+Contra Costa,Orinda Union,77.56,5
+Los Angeles,South Pasadena Unified,76.38,5
+San Diego,Del Mar Union Elementary,74.55555555555556,9
+Santa Clara,Los Gatos-Saratoga Union High,74.1,2
+Los Angeles,Manhattan Beach Unified,72.44285714285715,7
+San Mateo,Belmont-Redwood Shores Elementary,72.11428571428571,7
+Contra Costa,Lafayette Elementary,71.97999999999999,5
+San Diego,Solana Beach Elementary,70.55714285714285,7
+San Mateo,Menlo Park City Elementary,70.425,4
+Marin,Mill Valley Elementary,69.21666666666667,6
+San Mateo,San Carlos Elementary,68.13333333333334,9
+Santa Clara,Los Gatos Union Elementary,64.52000000000001,5
+Santa Clara,Union Elementary,64.05,8
+Los Angeles,Hermosa Beach City Elementary,62.56666666666666,3
+Marin,Reed Union Elementary,62.26666666666667,3
+Orange,Fountain Valley Elementary,60.239999999999995,10
+Marin,Larkspur-Corte Madera,59.9,3
+San Mateo,Burlingame Elementary,57.54285714285714,7
+Los Angeles,Walnut Valley Unified,56.785714285714285,14
+Santa Clara,Loma Prieta Joint Union Elementary,55.8,2
+Contra Costa,Moraga Elementary,54.125,4
+Marin,Kentfield Elementary,53.85,2
+San Joaquin,Lammersville Joint Unified,51.72222222222222,9
+Los Angeles,El Segundo Unified,49.1,4
+Marin,Ross Valley Elementary,46.18,5
+Placer,Eureka Union,45.74285714285714,7
+Orange,Laguna Beach Unified,45.5,4
+Contra Costa,San Ramon Valley Unified,45.05555555555556,36
+Alameda,Piedmont City Unified,44.35,6
+Orange,Irvine Unified,44.17045454545455,44
+Alameda,Albany City Unified,44.14,5
+San Diego,Cardiff Elementary,43.3,2
+Alameda,Dublin Unified,41.35,12
+Alameda,Fremont Unified,40.02682926829268,41
+Los Angeles,Arcadia Unified,39.48181818181818,11
+Orange,Los Alamitos Unified,39.13333333333333,9
+Contra Costa,Walnut Creek Elementary,38.68571428571429,7
+San Diego,San Dieguito Union High,37.54,10
+Los Angeles,Temple City Unified,37.300000000000004,6
+Monterey,Carmel Unified,34.58,5
+El Dorado,Latrobe,33.55,2
+Alameda,Pleasanton Unified,33.38125,16
+San Mateo,Millbrae Elementary,31.3,5
+San Diego,Encinitas Union Elementary,31.22222222222222,9
+Orange,Huntington Beach City Elementary,30.422222222222224,9
+Santa Barbara,Hope Elementary,29.36666666666667,3
+Los Angeles,Beverly Hills Unified,29.225,4
+Placer,Newcastle Elementary,27.8,5
+San Diego,Poway Unified,27.77948717948718,39
+Monterey,Washington Union Elementary,27.26666666666667,3
+Sonoma,Waugh Elementary,27.2,2
+Santa Clara,Cambrian,26.483333333333334,6
+El Dorado,Buckeye Union Elementary,26.13076923076923,13
+San Bernardino,Etiwanda Elementary,26.105882352941176,17
+Orange,Cypress Elementary,25.849999999999998,6
+San Diego,Coronado Unified,24.925,4
+Los Angeles,Redondo Beach Unified,24.59166666666667,12
+Placer,Loomis Union Elementary,23.87142857142857,7
+Los Angeles,Saugus Union,23.857142857142858,14
+Contra Costa,Acalanes Union High,22.84,5
+El Dorado,Rescue Union Elementary,21.457142857142856,7
+San Joaquin,Jefferson Elementary,21.32,5
+San Mateo,Brisbane Elementary,20.833333333333332,3
+Los Angeles,Palos Verdes Peninsula Unified,20.829411764705885,17
+Marin,Miller Creek Elementary,20.025,4
+Stanislaus,Paradise Elementary,19.65,2
+Los Angeles,Torrance Unified,18.893333333333334,30
+Los Angeles,Newhall,18.330000000000002,10
+Santa Clara,Mountain View Whisman,18.054545454545455,11
+Los Angeles,Santa Monica-Malibu Unified,17.87142857142857,14
+Ventura,Oak Park Unified,15.550000000000002,6
+Santa Clara,Moreland,15.12857142857143,7
+Santa Clara,Berryessa Union Elementary,15.030000000000001,10
+San Diego,Carlsbad Unified,14.113333333333333,15
+Santa Clara,Milpitas Unified,13.333333333333336,15
+Santa Clara,Evergreen Elementary,13.03125,16
+Orange,Capistrano Unified,12.833333333333334,63
+Stanislaus,Gratton Elementary,11.799999999999999,2
+Trinity,Mountain Valley Unified,11.0,2
+Sonoma,Gravenstein Union Elementary,9.5,3
+Los Angeles,Bonita Unified,8.823076923076922,13
+Alameda,Berkeley Unified,7.794117647058822,17
+Sonoma,Bennett Valley Union Elementary,6.800000000000001,2
+Monterey,Pacific Grove Unified,6.175,4
+Los Angeles,Rosemead Elementary,6.0600000000000005,5
+San Bernardino,Alta Loma Elementary,4.35,10
+Santa Barbara,Goleta Union Elementary,3.566666666666666,9
+Placer,Placer Hills Union Elementary,3.45,2
+Santa Cruz,Scotts Valley Unified,3.16,5
+Orange,Centralia Elementary,3.0875000000000004,8
+Placer,Rocklin Unified,3.085714285714285,21
+Santa Clara,Sunnyvale,1.3199999999999996,10
+Sonoma,Liberty Elementary,0.16666666666666666,3
+Los Angeles,Garvey Elementary,0.16363636363636394,11
+Alameda,Alameda Unified,-0.4055555555555522,18
+Los Angeles,Las Virgenes Unified,-0.5933333333333342,15
+Orange,Placentia-Yorba Linda Unified,-0.8515151515151513,33
+Los Angeles,Alhambra Unified,-1.2562499999999996,16
+San Luis Obispo,San Luis Coastal Unified,-2.0125000000000006,16
+Nevada,Chicago Park Elementary,-2.1500000000000004,2
+Los Angeles,East Whittier City Elementary,-3.115384615384616,13
+Placer,Roseville City,-4.0,21
+San Mateo,San Mateo-Foster City,-4.100000000000001,21
+San Diego,Santee,-4.111111111111111,9
+Calaveras,Vallecito Union,-4.266666666666667,3
+Fresno,Clovis Unified,-4.408333333333333,48
+Orange,Ocean View,-4.484615384615386,13
+Orange,Lowell Joint,-4.933333333333334,6
+Madera,Alview-Dairyland Union Elementary,-5.2,2
+Ventura,Pleasant Valley,-5.546153846153847,13
+Ventura,Conejo Valley Unified,-5.646153846153845,26
+Orange,Tustin Unified,-6.207142857142856,28
+Yolo,Davis Joint Unified,-6.45,16
+Sonoma,Twin Hills Union Elementary,-7.0,4
+San Mateo,Pacifica,-7.166666666666667,6
+Humboldt,Freshwater Elementary,-7.85,2
+Los Angeles,Castaic Union,-7.875,4
+Santa Cruz,Santa Cruz City Elementary,-8.02,5
+Orange,Garden Grove Unified,-8.080645161290322,62
+Los Angeles,Little Lake City Elementary,-8.144444444444444,9
+Santa Barbara,Buellton Union Elementary,-8.450000000000001,2
+Yuba,Wheatland,-9.600000000000001,4
+Kern,Norris Elementary,-9.819999999999999,5
+Orange,Fullerton Elementary,-9.864999999999998,20
+San Diego,Fallbrook Union Elementary,-10.222222222222221,9
+Alameda,Castro Valley Unified,-10.307142857142859,14
+El Dorado,Gold Trail Union Elementary,-10.649999999999999,2
+San Diego,Alpine Union Elementary,-10.959999999999999,5
+Los Angeles,ABC Unified,-11.024137931034485,29
+San Joaquin,Ripon Unified,-11.114285714285716,7
+Placer,Dry Creek Joint Elementary,-11.444444444444445,9
+Shasta,Cottonwood Union Elementary,-11.966666666666663,3
+Sonoma,Sebastopol Union Elementary,-12.5,3
+Orange,Brea-Olinda Unified,-12.91,10
+Orange,Saddleback Valley Unified,-13.283870967741937,31
+Contra Costa,Brentwood Union,-13.408333333333333,12
+Los Angeles,Glendale Unified,-13.75483870967742,31
+Santa Clara,Campbell Union,-13.799999999999999,12
+San Bernardino,Chino Valley Unified,-13.86470588235294,34
+Orange,Newport-Mesa Unified,-13.912903225806453,31
+Riverside,Murrieta Valley Unified,-14.078947368421053,19
+Riverside,Temecula Valley Unified,-14.643749999999999,32
+Sonoma,Old Adobe Union,-15.016666666666667,6
+Sutter,Marcum-Illinois Union Elementary,-15.200000000000001,2
+Orange,Savanna Elementary,-15.899999999999999,4
+Stanislaus,Roberts Ferry Union Elementary,-15.9,2
+Santa Cruz,San Lorenzo Valley Unified,-16.216666666666665,6
+Siskiyou,Scott Valley Unified,-16.625,4
+Los Angeles,Glendora Unified,-16.877777777777776,9
+San Mateo,San Bruno Park Elementary,-17.080000000000002,5
+Los Angeles,Culver City Unified,-17.475,8
+Orange,Westminster,-18.56875,16
+Ventura,Moorpark Unified,-18.66363636363636,11
+Sonoma,Mark West Union Elementary,-18.95,4
+Humboldt,Ferndale Unified,-19.45,2
+San Diego,Chula Vista Elementary,-19.602,50
+Los Angeles,Wiseburn Unified,-19.7125,8
+Santa Barbara,Carpinteria Unified,-19.85,6
+Monterey,Spreckels Union Elementary,-19.85,2
+Los Angeles,Claremont Unified,-19.88181818181818,11
+Contra Costa,Knightsen Elementary,-20.4,2
+Kern,Rio Bravo-Greeley Union Elementary,-20.5,2
+Santa Clara,Santa Clara Unified,-20.668965517241382,29
+Placer,Tahoe-Truckee Unified,-20.97272727272727,11
+Humboldt,Arcata Elementary,-21.116666666666664,6
+Nevada,Nevada City Elementary,-21.2,2
+Tehama,Evergreen Union,-21.55,4
+San Mateo,La Honda-Pescadero Unified,-21.8,3
+Sacramento,Galt Joint Union Elementary,-22.03333333333333,6
+Los Angeles,Sulphur Springs Union,-22.22222222222222,9
+Fresno,Kingsburg Elementary Charter,-22.55,6
+Nevada,Pleasant Ridge Union Elementary,-22.6,4
+Shasta,Columbia Elementary,-22.84,5
+Imperial,Heber Elementary,-23.15,2
+Kern,Rosedale Union Elementary,-23.955555555555556,9
+Orange,Magnolia Elementary,-24.022222222222222,9
+San Bernardino,Mountain View Elementary,-24.24,5
+Santa Cruz,Soquel Union Elementary,-24.3,4
+Stanislaus,Hickman Community Charter,-24.666666666666668,3
+Los Angeles,Valle Lindo Elementary,-24.9,2
+Solano,Benicia Unified,-24.971428571428568,7
+Los Angeles,Downey Unified,-25.005000000000003,20
+Santa Clara,Oak Grove Elementary,-25.083333333333332,18
+Stanislaus,Shiloh Elementary,-25.9,2
+Kern,Fruitvale Elementary,-26.68,5
+Humboldt,Pacific Union Elementary,-26.8,2
+Los Angeles,Lawndale Elementary,-27.066666666666666,9
+Alameda,Livermore Valley Joint Unified,-27.188888888888886,18
+San Mateo,Jefferson Elementary,-27.19333333333333,15
+Yuba,Camptonville Elementary,-27.55,2
+Humboldt,Cutten Elementary,-27.65,2
+Los Angeles,San Gabriel Unified,-27.855555555555558,9
+Kings,Pioneer Union Elementary,-27.900000000000002,3
+Sonoma,Healdsburg Unified,-28.400000000000002,3
+Sonoma,Rincon Valley Union Elementary,-28.54444444444444,9
+Shasta,Pacheco Union Elementary,-28.549999999999997,2
+Riverside,Menifee Union,-28.79444444444444,18
+Merced,Winton,-28.95,4
+Kings,Hanford Elementary,-28.99090909090909,11
+Orange,Orange Unified,-29.03589743589744,39
+Imperial,Imperial Unified,-29.119999999999997,5
+Sacramento,Folsom-Cordova Unified,-29.214285714285715,35
+Nevada,Grass Valley Elementary,-29.375,4
+Stanislaus,Hart-Ransom Union Elementary,-29.45,2
+Santa Barbara,College Elementary,-30.0,3
+Nevada,Union Hill Elementary,-30.4,2
+Sutter,Winship-Robbins,-31.0,2
+Mendocino,Leggett Valley Unified,-31.65,2
+Yuba,Plumas Lake Elementary,-31.733333333333334,3
+Kings,Central Union Elementary,-31.85,4
+Napa,Saint Helena Unified,-31.866666666666664,3
+Los Angeles,El Monte City,-31.900000000000002,14
+San Luis Obispo,San Miguel Joint Union,-32.15,2
+Siskiyou,Mt. Shasta Union Elementary,-32.25,2
+San Joaquin,Banta Unified,-32.25,6
+Contra Costa,Byron Union Elementary,-32.339999999999996,5
+Merced,Ballico-Cressey Elementary,-32.4,2
+Shasta,Happy Valley Union Elementary,-32.75,2
+Los Angeles,Whittier City,-33.016666666666666,12
+San Diego,San Diego Unified,-33.35754716981132,212
+Kings,Lemoore Union Elementary,-33.385714285714286,7
+Marin,San Rafael City Elementary,-33.3875,8
+Siskiyou,Yreka Union Elementary,-33.699999999999996,3
+San Diego,San Marcos Unified,-33.8,20
+San Bernardino,Redlands Unified,-33.86923076923077,26
+Glenn,Lake Elementary,-34.15,2
+Sacramento,Elk Grove Unified,-34.46666666666666,69
+Orange,Buena Park Elementary,-35.114285714285714,7
+Humboldt,Rio Dell Elementary,-35.15,2
+Placer,Western Placer Unified,-35.325,16
+San Diego,Julian Union Elementary,-35.471428571428575,7
+Santa Clara,Mountain View-Los Altos Union High,-35.63333333333333,3
+Los Angeles,West Covina Unified,-35.80588235294118,17
+Los Angeles,William S. Hart Union High,-35.90526315789473,19
+San Luis Obispo,Atascadero Unified,-35.95,10
+Los Angeles,Los Nietos,-36.275,4
+Riverside,Corona-Norco Unified,-36.29,50
+Los Angeles,Long Beach Unified,-36.300000000000004,83
+San Mateo,Cabrillo Unified,-36.35,6
+San Diego,Lakeside Union,-36.35454545454545,11
+Santa Cruz,Live Oak Elementary,-36.36666666666667,6
+Ventura,Mesa Union Elementary,-36.55,2
+Tuolumne,Jamestown Elementary,-36.65,2
+Kern,Delano Union Elementary,-36.725,12
+Butte,Gridley Unified,-37.1,4
+San Bernardino,Upland Unified,-37.300000000000004,14
+Butte,Durham Unified,-37.63333333333333,3
+San Diego,La Mesa-Spring Valley,-37.945454545454545,22
+Tuolumne,Summerville Union High,-37.96666666666667,3
+San Bernardino,Ontario-Montclair,-38.7060606060606,33
+San Diego,Dehesa Elementary,-38.94,5
+San Bernardino,Bear Valley Unified,-39.660000000000004,5
+Imperial,Holtville Unified,-40.160000000000004,5
+Los Angeles,Hawthorne,-40.199999999999996,11
+Stanislaus,Chatom Union,-40.2,2
+Los Angeles,Lennox,-40.24444444444444,9
+Marin,Shoreline Unified,-40.720000000000006,5
+Orange,La Habra City Elementary,-41.01111111111111,9
+Riverside,Beaumont Unified,-41.09375,16
+Santa Barbara,Orcutt Union Elementary,-41.11,10
+Fresno,Sanger Unified,-41.11578947368421,19
+San Bernardino,Central Elementary,-41.128571428571426,7
+Sonoma,Forestville Union Elementary,-41.3,2
+Orange,Fullerton Joint Union High,-41.3625,8
+Tehama,Los Molinos Unified,-41.4,3
+Santa Barbara,Blochman Union Elementary,-41.68,5
+Los Angeles,Hacienda la Puente Unified,-41.74074074074074,27
+Placer,Foresthill Union Elementary,-41.75,2
+Sonoma,Harmony Union Elementary,-41.8,3
+Sonoma,Guerneville Elementary,-41.9,2
+Merced,Weaver Union,-42.5,3
+Inyo,Bishop Unified,-42.56666666666667,3
+Ventura,Simi Valley Unified,-42.66923076923077,26
+Fresno,Kings Canyon Joint Unified,-42.71904761904762,21
+Merced,Atwater Elementary,-42.72,10
+San Mateo,Redwood City Elementary,-42.74,15
+Stanislaus,Sylvan Union Elementary,-42.8,13
+Los Angeles,Compton Unified,-42.939473684210526,38
+Ventura,Briggs Elementary,-43.0,2
+Santa Clara,Campbell Union High,-43.43333333333333,6
+Marin,Novato Unified,-43.56666666666667,15
+Stanislaus,Stanislaus Union Elementary,-43.75,6
+Los Angeles,Westside Union Elementary,-43.81666666666666,12
+San Diego,Escondido Union,-43.832,25
+Ventura,Ventura Unified,-44.04074074074074,27
+Los Angeles,Covina-Valley Unified,-44.205882352941174,17
+Stanislaus,Salida Union Elementary,-44.449999999999996,6
+Alameda,New Haven Unified,-44.541666666666664,12
+San Diego,Spencer Valley Elementary,-44.6,3
+San Luis Obispo,Templeton Unified,-45.083333333333336,6
+Fresno,Fowler Unified,-45.1,5
+Sutter,Nuestro Elementary,-45.45,2
+Santa Clara,San Jose Unified,-45.464285714285715,42
+Placer,Placer County Office of Education,-45.75,2
+El Dorado,Placerville Union Elementary,-46.06666666666666,3
+Lake,Middletown Unified,-46.25714285714286,7
+Stanislaus,Hughson Unified,-46.4,4
+Santa Barbara,Santa Barbara Unified,-46.647619047619045,21
+Los Angeles,Los Angeles Unified,-46.7375,952
+San Luis Obispo,Lucia Mar Unified,-46.742105263157896,19
+Stanislaus,Keyes Union,-47.1,3
+San Mateo,South San Francisco Unified,-47.34666666666667,15
+Alameda,Newark Unified,-48.05555555555556,9
+Los Angeles,Norwalk-La Mirada Unified,-48.188,25
+Marin,Tamalpais Union High,-48.2,5
+Imperial,El Centro Elementary,-48.79230769230769,13
+Mendocino,Mendocino Unified,-48.8,2
+Santa Clara,Gilroy Unified,-48.873333333333335,15
+El Dorado,Black Oak Mine Unified,-48.95,4
+Sonoma,Wright Elementary,-48.96666666666667,3
+Kern,Lost Hills Union Elementary,-49.150000000000006,2
+El Dorado,Mother Lode Union Elementary,-49.36666666666667,3
+Napa,Calistoga Joint Unified,-49.4,2
+Kern,Panama-Buena Vista Union,-49.843999999999994,25
+San Diego,Lemon Grove,-49.94285714285714,7
+Sonoma,Cinnabar Elementary,-50.0,2
+Sierra,Sierra-Plumas Joint Unified,-50.1,3
+San Benito,Hollister,-50.43636363636363,11
+Kern,Taft City,-50.51666666666667,6
+San Joaquin,Linden Unified,-50.56,5
+Humboldt,South Bay Union Elementary,-50.949999999999996,4
+Tulare,Tulare County Office of Education,-51.228571428571435,7
+El Dorado,Lake Tahoe Unified,-52.01428571428572,7
+Santa Clara,Morgan Hill Unified,-52.128571428571426,14
+Santa Clara,Santa Clara County Office of Education,-52.25217391304348,23
+Merced,Planada Elementary,-52.3,2
+Butte,Thermalito Union Elementary,-52.525,4
+Shasta,Enterprise Elementary,-52.733333333333334,9
+Tehama,Antelope Elementary,-52.775,4
+Humboldt,McKinleyville Union Elementary,-52.95,2
+Butte,Palermo Union Elementary,-53.23333333333333,3
+Shasta,Shasta Union High,-53.6,7
+San Bernardino,Needles Unified,-53.620000000000005,5
+Solano,Travis Unified,-53.949999999999996,8
+San Diego,Ramona City Unified,-54.32000000000001,10
+Los Angeles,Gorman Joint,-54.4,2
+Tulare,Lindsay Unified,-54.41428571428571,7
+Tulare,Burton Elementary,-54.53333333333333,6
+Los Angeles,Monrovia Unified,-54.589999999999996,10
+Shasta,Cascade Union Elementary,-54.7,4
+Los Angeles,Rowland Unified,-54.86190476190476,21
+San Joaquin,Escalon Unified,-54.94285714285714,7
+Tulare,Sequoia Union Elementary,-55.1,2
+San Diego,National Elementary,-55.127272727272725,11
+Kern,Greenfield Union,-55.23333333333333,12
+Shasta,Fall River Joint Unified,-55.25,4
+Los Angeles,Burbank Unified,-55.51052631578948,19
+Sonoma,Roseland,-55.525,4
+Riverside,Romoland Elementary,-55.56666666666666,6
+El Dorado,Pollock Pines Elementary,-56.0,2
+Los Angeles,South Whittier Elementary,-56.1,6
+Colusa,Pierce Joint Unified,-56.15,4
+San Francisco,San Francisco Unified,-56.1858407079646,113
+Mono,Mammoth Unified,-56.23333333333333,3
+Los Angeles,Bellflower Unified,-56.44285714285714,14
+Placer,Roseville Joint Union High,-57.32000000000001,10
+Madera,Bass Lake Joint Union Elementary,-57.36666666666667,3
+Contra Costa,Oakley Union Elementary,-57.400000000000006,9
+Riverside,Riverside Unified,-57.693617021276594,47
+Contra Costa,Martinez Unified,-57.975,8
+Santa Clara,Franklin-McKinley Elementary,-58.02777777777778,18
+San Diego,Oceanside Unified,-58.04583333333333,24
+Humboldt,Fortuna Elementary,-58.3,5
+Merced,Livingston Union,-58.875,4
+Madera,Chowchilla Elementary,-58.94000000000001,5
+Mono,Eastern Sierra Unified,-59.3,4
+Contra Costa,Mt. Diablo Unified,-59.51020408163265,49
+Los Angeles,Charter Oak Unified,-59.6888888888889,9
+San Diego,Bonsall Unified,-59.94,5
+Orange,Orange County Department of Education,-60.308,25
+Nevada,Penn Valley Union Elementary,-60.666666666666664,3
+Lassen,Susanville Elementary,-60.825,4
+El Dorado,Camino Union Elementary,-61.4,2
+Fresno,Orange Center,-61.6,2
+Orange,Huntington Beach Union High,-61.699999999999996,8
+Los Angeles,El Rancho Unified,-62.33076923076923,13
+San Bernardino,Chaffey Joint Union High,-62.42,10
+Butte,Biggs Unified,-62.46666666666667,3
+Napa,Napa Valley Unified,-62.711111111111116,27
+Colusa,Maxwell Unified,-62.79999999999999,3
+El Dorado,Pioneer Union,-62.833333333333336,3
+San Joaquin,Lodi Unified,-63.509803921568626,51
+Ventura,Ocean View,-63.55,4
+Fresno,Selma Unified,-63.57777777777778,9
+San Bernardino,Rialto Unified,-63.67142857142857,28
+Merced,Delhi Unified,-63.839999999999996,5
+Orange,Anaheim Elementary,-64.012,25
+Shasta,Redding Elementary,-64.02000000000001,10
+Kern,Sierra Sands Unified,-64.05555555555556,9
+Imperial,Brawley Elementary,-64.08333333333333,6
+Ventura,Ventura County Office of Education,-64.1625,8
+San Diego,San Ysidro Elementary,-64.22857142857143,7
+Sacramento,Natomas Unified,-64.33333333333333,21
+San Bernardino,Fontana Unified,-64.35454545454546,44
+Colusa,Colusa Unified,-64.60000000000001,3
+Tulare,Visalia Unified,-64.845,40
+Solano,Vacaville Unified,-64.88235294117646,17
+Sonoma,Piner-Olivet Union Elementary,-65.2,5
+Kern,McFarland Unified,-65.22,5
+Imperial,Calipatria Unified,-65.375,4
+Los Angeles,Pasadena Unified,-65.53214285714286,28
+San Bernardino,Helendale Elementary,-65.8125,8
+Solano,Fairfield-Suisun Unified,-65.85862068965517,29
+Madera,Chawanakee Unified,-65.98333333333333,6
+Fresno,Mendota Unified,-66.02000000000001,5
+Yolo,Winters Joint Unified,-66.4,5
+Fresno,Central Unified,-66.6695652173913,23
+Tulare,Woodlake Unified,-66.75,4
+El Dorado,El Dorado County Office of Education,-66.85,4
+San Diego,Vista Unified,-67.00714285714285,28
+Placer,Auburn Union Elementary,-67.1,3
+Sonoma,Oak Grove Union Elementary,-67.26666666666667,3
+San Bernardino,Victor Elementary,-67.27222222222223,18
+El Dorado,El Dorado Union High,-67.31666666666666,6
+Riverside,Nuview Union,-67.575,4
+Plumas,Plumas Unified,-67.5875,8
+Kings,Corcoran Joint Unified,-67.88,5
+Kern,Edison Elementary,-67.94999999999999,2
+Stanislaus,Waterford Unified,-68.08,5
+Fresno,Riverdale Joint Unified,-68.2,3
+Santa Clara,Alum Rock Union Elementary,-68.30555555555556,18
+Stanislaus,Modesto City Elementary,-68.31071428571428,28
+Madera,Golden Valley Unified,-68.61428571428571,7
+Stanislaus,Empire Union Elementary,-68.64999999999999,6
+Riverside,Lake Elsinore Unified,-69.104,25
+Kern,Tehachapi Unified,-69.21666666666667,6
+Sacramento,Sacramento City Unified,-69.27777777777777,81
+Fresno,Fresno Unified,-69.36666666666666,105
+San Bernardino,Yucaipa-Calimesa Joint Unified,-69.67857142857143,14
+San Bernardino,Silver Valley Unified,-69.7375,8
+Ventura,Rio Elementary,-69.80000000000001,9
+Yolo,Washington Unified,-70.12307692307692,13
+Tulare,Pixley Union Elementary,-70.25,2
+Monterey,King City Union,-70.375,4
+San Joaquin,New Jerusalem Elementary,-70.46363636363637,11
+Los Angeles,Montebello Unified,-70.52142857142857,28
+Los Angeles,Paramount Unified,-70.58333333333333,18
+Kern,Maricopa Unified,-70.875,8
+Lassen,Big Valley Joint Unified,-71.0,2
+Tulare,Terra Bella Union Elementary,-71.3,2
+Sacramento,Elverta Joint Elementary,-71.4,2
+Butte,Chico Unified,-71.83,30
+San Joaquin,Lincoln Unified,-72.00833333333334,12
+San Diego,South Bay Union,-72.25454545454545,11
+Calaveras,Mark Twain Union Elementary,-72.45,2
+Los Angeles,Baldwin Park Unified,-72.49375,16
+Ventura,Oxnard,-72.625,20
+Sonoma,Cotati-Rohnert Park Unified,-72.63076923076923,13
+Monterey,Salinas City Elementary,-72.68,15
+San Joaquin,Tracy Joint Unified,-72.9,21
+Santa Barbara,Cuyama Joint Unified,-72.95,2
+Kern,Fairfax Elementary,-73.0,4
+Tulare,Tulare City,-73.18125,16
+Monterey,Alisal Union,-73.46666666666667,12
+Sutter,Meridian Elementary,-73.8,2
+Kings,Armona Union Elementary,-73.9,4
+San Bernardino,Cucamonga Elementary,-74.125,4
+Los Angeles,Inglewood Unified,-74.33999999999999,15
+Merced,Hilmar Unified,-74.46000000000001,5
+San Diego,Grossmont Union High,-74.52666666666667,15
+Sacramento,San Juan Unified,-74.55277777777778,72
+Fresno,Caruthers Unified,-74.63333333333334,3
+Fresno,Firebaugh-Las Deltas Unified,-74.7,4
+Mendocino,Arena Union Elementary,-74.9,2
+Riverside,Desert Sands Unified,-75.0060606060606,33
+Kern,Wasco Union Elementary,-75.01666666666667,6
+San Bernardino,Morongo Unified,-75.03125,16
+Kern,Richland Union Elementary,-75.05,4
+Yolo,Woodland Joint Unified,-75.21176470588236,17
+San Diego,Jamul-Dulzura Union Elementary,-75.23333333333333,3
+Los Angeles,Duarte Unified,-75.28888888888889,9
+Kern,Arvin Union,-75.425,4
+Alameda,San Leandro Unified,-75.46153846153847,13
+Glenn,Willows Unified,-75.53333333333333,3
+Humboldt,Northern Humboldt Union High,-75.55,4
+Los Angeles,Azusa Unified,-75.55,10
+Sacramento,River Delta Joint Unified,-75.55555555555556,9
+Nevada,Nevada Joint Union High,-76.16666666666667,6
+Riverside,Val Verde Unified,-76.43809523809524,21
+Santa Clara,Mount Pleasant Elementary,-76.47999999999999,5
+Yuba,Marysville Joint Unified,-76.53478260869565,23
+Kern,El Tejon Unified,-77.0,3
+Fresno,Sierra Unified,-77.075,4
+Stanislaus,Turlock Unified,-77.475,16
+Orange,Santa Ana Unified,-77.53703703703704,54
+Sutter,Live Oak Unified,-78.02,5
+Stanislaus,Oakdale Joint Unified,-78.25555555555555,9
+Ventura,Hueneme Elementary,-78.39999999999999,11
+Mendocino,Laytonville Unified,-78.4,2
+San Mateo,Sequoia Union High,-78.57777777777778,9
+San Diego,Cajon Valley Union,-79.14827586206897,29
+Kern,Lakeside Union,-79.3,2
+Shasta,Gateway Unified,-79.44285714285715,7
+Tulare,Porterville Unified,-79.5952380952381,21
+Monterey,Santa Rita Union Elementary,-79.78333333333333,6
+Los Angeles,Pomona Unified,-80.07297297297296,37
+Mendocino,Fort Bragg Unified,-80.12,5
+San Bernardino,San Bernardino City Unified,-80.17469879518072,83
+Tehama,Corning Union Elementary,-80.24,5
+Shasta,Black Butte Union Elementary,-80.25,2
+Los Angeles,Mountain View Elementary,-80.35,8
+Sutter,Yuba City Unified,-80.36666666666667,18
+Sonoma,Bellevue Union,-80.375,4
+San Luis Obispo,Coast Unified,-80.46666666666665,3
+Riverside,Perris Elementary,-80.65,8
+San Mateo,San Mateo Union High,-81.21111111111111,9
+Modoc,Modoc Joint Unified,-81.26666666666667,3
+Riverside,Alvord Unified,-81.28260869565217,23
+Madera,Madera Unified,-81.32333333333332,30
+Fresno,Kerman Unified,-81.5,9
+Tulare,Alta Vista Elementary,-81.6,2
+San Mateo,Jefferson Union High,-81.7,6
+San Bernardino,Lucerne Valley Unified,-81.71111111111111,9
+Riverside,Palm Springs Unified,-81.94074074074075,27
+San Benito,Aromas - San Juan Unified,-82.1,3
+Sonoma,Sonoma Valley Unified,-82.17777777777778,9
+Contra Costa,West Contra Costa Unified,-82.41355932203389,59
+Kern,Kernville Union Elementary,-82.46666666666667,3
+Tehama,Red Bluff Union Elementary,-82.475,4
+Los Angeles,Whittier Union High,-83.01428571428572,7
+Mendocino,Ukiah Unified,-83.30625,16
+Sacramento,Center Joint Unified,-83.35,8
+Merced,Merced City Elementary,-83.61578947368422,19
+Los Angeles,Lynwood Unified,-84.01764705882353,17
+Santa Barbara,Santa Maria-Bonita,-84.05714285714286,21
+Los Angeles,Keppel Union Elementary,-84.16666666666667,6
+Monterey,Greenfield Union Elementary,-84.28,5
+Solano,Dixon Unified,-84.37142857142858,7
+Stanislaus,Ceres Unified,-84.6608695652174,23
+Sacramento,Twin Rivers Unified,-84.68163265306121,49
+Los Angeles,Bassett Unified,-84.84285714285714,7
+Alameda,Alameda County Office of Education,-85.10909090909091,11
+Tulare,Cutler-Orosi Joint Unified,-85.21666666666667,6
+San Diego,San Diego County Office of Education,-85.3125,16
+San Bernardino,Colton Joint Unified,-85.42592592592592,27
+Kern,Vineland Elementary,-85.6,2
+Sutter,Sutter County Office of Education,-85.6,2
+San Luis Obispo,Paso Robles Joint Unified,-86.01818181818182,11
+Alameda,San Lorenzo Unified,-86.17777777777778,18
+Ventura,Fillmore Unified,-86.2,7
+Monterey,Monterey Peninsula Unified,-86.23333333333333,18
+Colusa,Williams Unified,-86.86666666666667,3
+Sacramento,Robla Elementary,-86.95,8
+San Joaquin,Manteca Unified,-86.98888888888888,27
+Yolo,Yolo County Office of Education,-87.1,2
+Glenn,Orland Joint Unified,-87.425,4
+El Dorado,Gold Oak Union Elementary,-87.45,2
+San Diego,Escondido Union High,-87.675,8
+Tulare,Exeter Unified,-87.75,6
+San Bernardino,Snowline Joint Unified,-87.78181818181818,11
+Solano,Vallejo City Unified,-87.80909090909091,22
+Riverside,Moreno Valley Unified,-87.91388888888889,36
+San Diego,Mountain Empire Unified,-88.00909090909092,11
+Alameda,Emery Unified,-88.15,2
+Santa Barbara,Guadalupe Union Elementary,-88.45,2
+Sonoma,Geyserville Unified,-88.5,2
+Contra Costa,John Swett Unified,-89.0,3
+Kern,Bakersfield City,-89.15348837209302,43
+Riverside,Hemet Unified,-89.1962962962963,27
+Del Norte,Del Norte County Unified,-89.59166666666665,12
+San Diego,Warner Unified,-89.64444444444445,9
+Tulare,Dinuba Unified,-89.77000000000001,10
+Kern,Standard Elementary,-90.0,4
+Fresno,Westside Elementary,-90.19999999999999,3
+Glenn,Hamilton Unified,-90.30000000000001,2
+Kern,Lamont Elementary,-90.35,4
+Los Angeles,Wilsona Elementary,-90.63333333333334,3
+Merced,Los Banos Unified,-90.76,15
+Humboldt,Southern Humboldt Joint Unified,-90.925,4
+Alameda,Oakland Unified,-91.125,100
+Fresno,Golden Plains Unified,-91.36,5
+Riverside,San Jacinto Unified,-91.58125,16
+Fresno,Fresno County Office of Education,-91.82222222222222,9
+Riverside,Coachella Valley Unified,-92.0409090909091,22
+Ventura,Oxnard Union High,-92.05,12
+Santa Barbara,Lompoc Unified,-92.1125,16
+Santa Cruz,Pajaro Valley Unified,-92.2258064516129,31
+Riverside,Jurupa Unified,-92.4375,24
+Trinity,Trinity Alps Unified,-92.80000000000001,2
+San Bernardino,Hesperia Unified,-92.91785714285713,28
+Alameda,Hayward Unified,-93.265625,32
+Sonoma,Windsor Unified,-93.525,8
+Merced,Gustine Unified,-94.2,4
+Los Angeles,Eastside Union Elementary,-94.24,5
+Los Angeles,Palmdale Elementary,-94.30322580645162,31
+Nevada,Nevada County Office of Education,-94.55714285714285,7
+Los Angeles,Lancaster Elementary,-94.71363636363635,22
+Mariposa,Mariposa County Unified,-94.72,10
+Butte,Oroville City Elementary,-95.0125,8
+Contra Costa,Pittsburg Unified,-95.1923076923077,13
+Mendocino,Anderson Valley Unified,-95.4,2
+Humboldt,Eureka City Schools,-95.69999999999999,9
+Yolo,Esparto Unified,-95.96666666666665,3
+Tulare,Earlimart Elementary,-96.0,3
+Butte,Paradise Unified,-96.9,10
+Riverside,Banning Unified,-97.32857142857142,7
+Glenn,Princeton Joint Unified,-97.65,2
+San Bernardino,Apple Valley Unified,-97.65333333333334,15
+Siskiyou,Siskiyou County Office of Education,-98.0,3
+San Joaquin,Stockton Unified,-98.41692307692308,65
+Orange,Anaheim Union High,-98.48571428571428,21
+Monterey,Gonzales Unified,-98.63333333333333,3
+San Bernardino,Victor Valley Union High,-99.13636363636364,11
+Los Angeles,Los Angeles County Office of Education,-99.564,25
+Ventura,Santa Paula Unified,-99.87,10
+Monterey,North Monterey County Unified,-99.98571428571428,7
+Mendocino,Potter Valley Community Unified,-100.0,3
+Shasta,Shasta County Office of Education,-100.02000000000001,5
+Los Angeles,Acton-Agua Dulce Unified,-100.12142857142858,14
+Monterey,Soledad Unified,-100.5625,8
+Placer,Placer Union High,-100.76666666666667,6
+Sonoma,Cloverdale Unified,-100.8,3
+Kern,Beardsley Elementary,-101.65,4
+Imperial,Calexico Unified,-101.89090909090909,11
+San Diego,Borrego Springs Unified,-102.2,4
+Amador,Amador County Unified,-102.3,12
+Contra Costa,Antioch Unified,-104.18214285714285,28
+San Bernardino,Rim of the World Unified,-104.42857142857143,7
+San Diego,Sweetwater Union High,-104.53333333333333,30
+Fresno,Parlier Unified,-104.78333333333335,6
+Kern,Delano Joint Union High,-104.85,4
+San Bernardino,San Bernardino County Office of Education,-105.06666666666666,9
+Fresno,Laton Joint Unified,-105.46666666666665,3
+Contra Costa,Liberty Union High,-106.12,5
+San Bernardino,Adelanto Elementary,-106.25,16
+Stanislaus,Denair Unified,-106.675,4
+Stanislaus,Patterson Joint Unified,-106.6888888888889,9
+Stanislaus,Riverbank Unified,-106.78333333333335,6
+Santa Cruz,Santa Cruz City High,-108.24444444444445,9
+Lake,Lakeport Unified,-108.6,4
+Sacramento,Galt Joint Union High,-109.66666666666667,3
+Riverside,Riverside County Office of Education,-110.20625,16
+Kern,Kern County Office of Education,-110.47777777777777,9
+Monterey,Salinas Union High,-111.17272727272729,11
+Fresno,Washington Unified,-111.26666666666667,6
+San Bernardino,Barstow Unified,-111.84166666666665,12
+San Bernardino,Baker Valley Unified,-112.26666666666665,3
+San Diego,Valley Center-Pauma Unified,-112.6875,8
+Lassen,Westwood Unified,-113.0,2
+Calaveras,Calaveras Unified,-113.43333333333334,9
+Ventura,Ojai Unified,-114.34285714285714,7
+Modoc,Tulelake Basin Joint Unified,-114.45,2
+Santa Clara,East Side Union High,-115.83043478260869,23
+San Mateo,Ravenswood City Elementary,-117.18333333333334,6
+Contra Costa,Contra Costa County Office of Education,-117.56666666666666,9
+Kern,Wasco Union High,-117.85000000000001,2
+Los Angeles,El Monte Union High,-119.11428571428571,7
+Stanislaus,Newman-Crows Landing Unified,-119.575,8
+Tulare,Tulare Joint Union High,-120.24000000000001,5
+Kings,Kit Carson Union Elementary,-120.3,3
+Santa Barbara,Santa Maria Joint Union High,-120.8,4
+Kings,Reef-Sunset Unified,-121.2,5
+Stanislaus,Modesto City High,-121.75555555555555,9
+Kern,Muroc Joint Unified,-121.86666666666667,6
+Tulare,Stone Corral Elementary,-123.0,2
+San Bernardino,Trona Joint Unified,-123.1,2
+San Luis Obispo,Shandon Joint Unified,-123.55,2
+San Diego,Fallbrook Union High,-123.59999999999998,3
+Monterey,Monterey County Office of Education,-123.87142857142858,7
+Kings,Lemoore Union High,-124.025,4
+Inyo,Lone Pine Unified,-124.4,2
+Fresno,Coalinga-Huron Unified,-124.8777777777778,9
+Lake,Kelseyville Unified,-125.73333333333333,6
+Imperial,Central Union High,-126.76666666666667,3
+Humboldt,Fortuna Union High,-127.3,3
+Lake,Upper Lake Unified,-127.90000000000002,3
+Humboldt,Humboldt County Office of Education,-128.16666666666666,6
+Tulare,Farmersville Unified,-128.38,5
+Lassen,Fort Sage Unified,-128.73333333333332,3
+Mendocino,Willits Unified,-128.74444444444444,9
+Tulare,Alpaugh Unified,-128.93333333333334,3
+Imperial,Brawley Union High,-129.3,2
+Solano,Solano County Office of Education,-129.93333333333334,3
+Humboldt,Klamath-Trinity Joint Unified,-130.04000000000002,5
+Los Angeles,Antelope Valley Union High,-131.1076923076923,13
+Marin,San Rafael City High,-131.96666666666667,3
+Fresno,Raisin City Elementary,-132.89999999999998,2
+Merced,Dos Palos Oro Loma Joint Unified,-134.12,5
+Siskiyou,Butte Valley Unified,-134.2,2
+San Mateo,San Mateo County Office of Education,-134.45,2
+Riverside,Palo Verde Unified,-135.88333333333333,6
+Shasta,Anderson Union High,-136.76,5
+Fresno,West Park Elementary,-137.05,2
+Kern,Southern Kern Unified,-137.65,6
+Riverside,Perris Union High,-138.42857142857142,7
+Marin,Marin County Office of Education,-138.73333333333332,3
+Kern,Kern High,-140.2,25
+Kern,Mojave Unified,-142.1,5
+Madera,Yosemite Unified,-142.3375,8
+Mendocino,Round Valley Unified,-143.20000000000002,3
+Kings,Hanford Joint Union High,-143.44,5
+Butte,Butte County Office of Education,-143.775,4
+Merced,Merced Union High,-144.8125,8
+Siskiyou,Siskiyou Union High,-146.25,2
+Imperial,San Pasqual Valley Unified,-147.03333333333333,3
+Tehama,Red Bluff Joint Union High,-150.7,2
+Butte,Oroville Union High,-150.76666666666668,3
+Tuolumne,Sonora Union High,-152.23333333333335,3
+Fresno,Kingsburg Joint Union High,-153.43333333333334,3
+Lake,Konocti Unified,-153.85,8
+Madera,Chowchilla Union High,-154.6,2
+Madera,Madera County Superintendent of Schools,-155.16666666666666,3
+San Bernardino,Oro Grande,-157.34444444444443,9
+Yuba,Wheatland Union High,-158.35,2
+Glenn,Glenn County Office of Education,-158.5,4
+San Luis Obispo,San Luis Obispo County Office of Education,-160.8,2
+Yuba,Yuba County Office of Education,-164.85,4
+Tehama,Tehama County Department of Education,-168.26666666666668,3
+Kern,Taft Union High,-169.15,2
+Calaveras,Bret Harte Union High,-170.85,2
+Monterey,South Monterey County Joint Union High,-172.5,4
+Sonoma,West Sonoma County Union High,-172.9333333333333,3
+San Benito,San Benito High,-173.65,2
+Napa,Napa County Office of Education,-175.1,2
+San Joaquin,San Joaquin County Office of Education,-179.65,6
+Santa Cruz,Santa Cruz County Office of Education,-182.05,4
+Merced,Merced County Office of Education,-183.26666666666668,6
+Tehama,Corning Union High,-187.4,2
+Stanislaus,Stanislaus County Office of Education,-189.20000000000002,4
+Los Angeles,Centinela Valley Union High,-197.64285714285714,7
+Siskiyou,Yreka Union High,-198.95000000000002,2
+Sacramento,Sacramento County Office of Education,-202.25,8
+Inyo,Inyo County Office of Education,-293.4666666666667,3
+San Francisco,San Francisco County Office of Education,-343.3,3
