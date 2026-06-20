@@ -32,11 +32,25 @@ TODO: write this :)
 
 6. Aggregate school-level performance metrics to the county level.
 
-7. Estimate a linear regression relating average county CAASP performance to COE size.
+7. Obtain auxiliary datasets
+
+7a. Obtain SAIPE data
+
+SAIPE contains data about poverty and income. It's rather limited, as it is recorded per county, but this is better than no data.
+
+The dataset for 2024 can be found [as a downloadable text file](https://www2.census.gov/programs-surveys/saipe/datasets/2024/2024-state-and-county/est24-ca.txt); it was obtained from the SAIPE State and County Estimates for 2024 [web page](https://www.census.gov/data/datasets/2024/demo/saipe/2024-state-and-county.html). Its interpretation is [in a special document](https://www2.census.gov/programs-surveys/saipe/technical-documentation/file-layouts/state-county/2024-estimate-layout.txt), which are listed on [the State and County Estimate Layouts page](https://www.census.gov/programs-surveys/saipe/technical-documentation/file-layouts/state-county.html). Since this data is not in a conventional structured data format, custom parsing rules were required.
+
+8. Estimate linear regressions
+
+8a. Regression relating average county CAASP performance to COE size.
 
 We began by determining whether a linear relationship existed. By estimating a linear model relating CAASP scores to COE size, we were able to discern that a small but significant positive correlation existed between CAASP scores and COE size.
 
-8. Produce maps and visualizations of the resulting dataset.
+8b. Regression relating average county CAASP performance to COE size and median household income.
+
+This estimate informed us that a significant positive correlation existed between CAASP scores and median household income per county. However, this decreased the significance of the COE size coefficient, placing it just ouside the 0.05 confidence level. This suggests that COE size and median household income are correlated in some way, and one may act as a confounder for the other.
+
+9. Produce maps and visualizations of the resulting dataset.
 
 ## Data Sources
 
@@ -50,7 +64,7 @@ This analysis is exploratory and correlational.
 
 Several important factors are not controlled for, including:
 
-- household income
+- school-level household income
 - race and ethnicity
 - English learner status
 - urbanization
@@ -58,6 +72,23 @@ Several important factors are not controlled for, including:
 - chronic absenteeism
 
 As a result, any observed relationship between COE size and CAASP performance should not be interpreted as causal.
+
+# Observations
+
+At the county level:
+- Statistically significant relation between COE size and CAASP performance
+  - Variable: COE size
+    - P-value of 0.01092 is significant at the 0.05 alpha level
+    - Coefficient of 0.024853 suggests that each additional school in a COE is correlated to a roughly 0.025 point increase in average CAASP score at that COE
+  - Summary: COE size is a statistically significant predictor for CAASP performance
+- Statistically significant relation between county-level median income and CAASP performance, even when COE size is accounted for
+  - Variable: COE size
+    - P-value of 5.847908e-02 is not significant at the 0.05 alpha level
+    - Coefficient of 0.013439 suggests that each additional school in a COE is correlated to a roughly 0.01 point increase in average CAASP score at that COE
+  - Variable: Median household income
+    - P-value of 1.122515e-09 is significant at the 0.05 alpha level
+    - Coefficient of 0.000634 suggests that every $1,000.00 in median income per household in a county is correlated to about 0.634 points in CAASP score at that COE
+  - Summary: Median income seems to be a statistically significant predictor for CAASP performance, but COE size might not be; it would seem that income is a confounder for county size, and perhaps larger counties just tend to be wealthier. This suggests that the original relationship between COE size and CAASP performance may be partly explained by income differences across counties, rather than COE size alone. Interpretation must therefore be cautious.
 
 # Analysis
 

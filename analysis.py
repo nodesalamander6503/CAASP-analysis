@@ -11,8 +11,9 @@ import matplotlib.pyplot as plt
 import requests
 from util import *
 from time import sleep
+from saipe import saipe_df
 
-actions = ["load", "process"] # options: scrape,load,process
+actions = ["load", "augment", "process"] # options: scrape,load,augment,process
 
 INPUT_PATH = Path("pubdata.tsv")
 OUTPUT_PATH = Path("ca_schools_with_caasp.csv")
@@ -448,6 +449,70 @@ def ols_coe_size_caasp(df: pd.DataFrame) -> pd.DataFrame:
     return result
 
 
+def ols_coe_size_income_caasp(df: pd.DataFrame) -> pd.DataFrame:
+    reg_df = df.copy()
+    reg_df["CAASP_SCORE"] = pd.to_numeric(reg_df["CAASP_SCORE"], errors="coerce")
+    reg_df["median_household_income"] = pd.to_numeric(
+        reg_df["median_household_income"],
+        errors="coerce",
+    )
+
+    coe = (
+        reg_df.groupby("County", as_index=False)
+        .agg(
+            avg_caasp=("CAASP_SCORE", "mean"),
+            coe_size=("School", "count"),
+            n_caasp=("CAASP_SCORE", "count"),
+            median_household_income=("median_household_income", "first"),
+        )
+        .dropna(subset=["avg_caasp", "coe_size", "median_household_income"])
+    )
+
+    y = coe["avg_caasp"].to_numpy(dtype=float)
+
+    X_vars = coe[[
+        "coe_size",
+        "median_household_income",
+    ]].to_numpy(dtype=float)
+
+    X = np.column_stack([np.ones(len(X_vars)), X_vars])
+    names = ["Intercept", "COE size", "Median household income"]
+
+    beta = np.linalg.lstsq(X, y, rcond=None)[0]
+    y_hat = X @ beta
+    residuals = y - y_hat
+
+    n = len(y)
+    p = X.shape[1]
+    df_resid = n - p
+
+    sse = float(np.sum(residuals ** 2))
+    sigma2_hat = sse / df_resid
+    cov_beta = sigma2_hat * np.linalg.pinv(X.T @ X)
+
+    se = np.sqrt(np.diag(cov_beta))
+    t_stats = beta / se
+    p_values = 2 * (1 - stats.t.cdf(np.abs(t_stats), df=df_resid))
+
+    ss_total = float(np.sum((y - y.mean()) ** 2))
+    r2 = 1 - sse / ss_total
+
+    result = pd.DataFrame({
+        "term": names,
+        "estimate": beta,
+        "std_error": se,
+        "t_stat": t_stats,
+        "p_value": p_values,
+    })
+
+    result.attrs["n"] = n
+    result.attrs["df_resid"] = df_resid
+    result.attrs["r2"] = r2
+    result.attrs["sse"] = sse
+
+    return result
+
+
 def plot_coe_size_vs_caasp(df: pd.DataFrame) -> pd.DataFrame:
     FIG_DIR.mkdir(exist_ok=True)
 
@@ -558,6 +623,49 @@ def run_preliminary_stats(df: pd.DataFrame) -> None:
     coe_summary = plot_coe_size_vs_caasp(df)
     coe_summary.to_csv(FIG_DIR / "coe_summary.csv", index=False)
 
+    coe_income_reg = ols_coe_size_income_caasp(df)
+    coe_income_reg.to_csv(FIG_DIR / "coe_size_income_regression.csv", index=False)
+    
+    with open(FIG_DIR / "coe_size_income_regression_summary.txt", "w") as f:
+        f.write("OLS: average CAASP score ~ COE size + median household income\n\n")
+        f.write(coe_income_reg.to_string(index=False))
+        f.write("\n\n")
+        f.write(f"n = {coe_income_reg.attrs['n']}\n")
+        f.write(f"df_resid = {coe_income_reg.attrs['df_resid']}\n")
+        f.write(f"SSE = {coe_income_reg.attrs['sse']}\n")
+        f.write(f"R^2 = {coe_income_reg.attrs['r2']}\n")
+
+
+def augment(df):
+    if True: # SAIPE data
+        income_by_county = saipe_df[["County name", "Median household income"]].copy()
+    
+        income_by_county["County"] = (
+            income_by_county["County name"]
+            .str.replace(" County", "", regex=False)
+            .str.strip()
+        )
+        
+        income_by_county = income_by_county[[
+            "County",
+            "Median household income"
+        ]].rename(columns={
+            "Median household income": "median_household_income"
+        })
+        
+        df = df.merge(
+            income_by_county,
+            on="County",
+            how="left",
+            validate="many_to_one"
+        )
+    
+        print("Missing income values:", df["median_household_income"].isna().sum())
+        print(df[df["median_household_income"].isna()]["County"].unique())
+    
+    # One may insert further augmentations here later
+
+    return df
 
 def main() -> None:
     for action in actions:
@@ -569,6 +677,8 @@ def main() -> None:
             print(f"Saved {len(enriched)} rows to {OUTPUT_PATH}.")
         if action == "load":
             enriched = pd.read_csv(OUTPUT_PATH)
+        if action == "augment":
+            enriched = augment(enriched)
         if action == "process":
             run_preliminary_stats(enriched)
             print(f"Saved preliminary outputs to {FIG_DIR}/.")

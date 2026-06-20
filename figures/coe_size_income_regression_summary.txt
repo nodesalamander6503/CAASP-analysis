@@ -1,0 +1,11 @@
+OLS: average CAASP score ~ COE size + median household income
+
+                   term    estimate  std_error     t_stat      p_value
+              Intercept -123.769852   7.741529 -15.987779 0.000000e+00
+               COE size    0.013439   0.006955   1.932302 5.847908e-02
+Median household income    0.000634   0.000087   7.321247 1.122515e-09
+
+n = 58
+df_resid = 55
+SSE = 15241.858489794718
+R^2 = 0.5493465271126472
