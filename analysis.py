@@ -15,8 +15,28 @@ from saipe import saipe_df
 
 actions = ["load", "augment", "process"] # options: scrape,load,augment,process
 
+big_auto_table = ""
+def add_to_auto_table(data):
+    global big_auto_table
+    PREC = 10000 # precision
+    text = "### Regression: CAASPP score ~ " + " + ".join(data["factors"]) + "\n\n"
+    text += "|Factor|P-value|Significant|\n"
+    text += "|-|-|\n"
+    for index, factor in enumerate(["Intercept"] + data["factors"]):
+        p = data["p-values"][index]
+        p = ("< " + str(1/PREC)) if p < (1/PREC) else str(round(data["p-values"][index] * PREC) / PREC)
+        text += "|" + factor + \
+                "|" + p + \
+                "|" + ("Yes" if data["p-values"][index] < 0.05 else "No") + \
+                "|\n"
+    text += "\n"
+    text += "R² = " + str(round(data["pearson's r-square"] * PREC) / PREC) + "\n\n"
+    text += "n = " + str(data["n"]) + "\n\n"
+    text += "\n"
+    big_auto_table += text
+
 INPUT_PATH = Path("pubdata.tsv")
-OUTPUT_PATH = Path("ca_schools_with_caasp.csv")
+OUTPUT_PATH = Path("ca_schools_with_caaspp.csv")
 FIG_DIR = Path("figures")
 
 LIMIT: Optional[int] = None
@@ -34,11 +54,11 @@ def plot_caasp_county_map(df: pd.DataFrame) -> None:
 
     # County names in Census file are like "San Diego"; your data should match this usually.
     county_scores = (
-        df.dropna(subset=["CAASP_SCORE"])
+        df.dropna(subset=["CAASPP_SCORE"])
         .groupby("County", as_index=False)
         .agg(
-            avg_caasp=("CAASP_SCORE", "mean"),
-            n_schools=("CAASP_SCORE", "size"),
+            avg_caasp=("CAASPP_SCORE", "mean"),
+            n_schools=("CAASPP_SCORE", "size"),
         )
     )
 
@@ -50,7 +70,7 @@ def plot_caasp_county_map(df: pd.DataFrame) -> None:
     )
 
     # Convert school points to GeoDataFrame.
-    points_df = df.dropna(subset=["CAASP_SCORE", "Latitude", "Longitude"]).copy()
+    points_df = df.dropna(subset=["CAASPP_SCORE", "Latitude", "Longitude"]).copy()
     schools_gdf = gpd.GeoDataFrame(
         points_df,
         geometry=gpd.points_from_xy(points_df["Longitude"], points_df["Latitude"]),
@@ -82,7 +102,7 @@ def plot_caasp_county_map(df: pd.DataFrame) -> None:
         alpha=0.35,
     )
 
-    ax.set_title("Average CAASP Score by California County, with School Locations")
+    ax.set_title("Average CAASPP Score by California County, with School Locations")
     ax.set_axis_off()
 
     plt.tight_layout()
@@ -237,8 +257,8 @@ def enrich_with_caasp(schools: pd.DataFrame, limit: Optional[int] = None) -> pd.
             sleep(random.randint(2, 4))
 
         out = row.to_dict()
-        out["CAASP_SCORE"] = score
-        out["CAASP_ERROR"] = error
+        out["CAASPP_SCORE"] = score
+        out["CAASPP_ERROR"] = error
         rows.append(out)
 
         if n % 50 == 0:
@@ -266,17 +286,17 @@ def bar_avg_caasp_by_county(df: pd.DataFrame) -> pd.DataFrame:
     FIG_DIR.mkdir(exist_ok=True)
 
     county = (
-        df.dropna(subset=["CAASP_SCORE"])
+        df.dropna(subset=["CAASPP_SCORE"])
         .groupby("County", as_index=False)
-        .agg(avg_caasp=("CAASP_SCORE", "mean"), n=("CAASP_SCORE", "size"))
+        .agg(avg_caasp=("CAASPP_SCORE", "mean"), n=("CAASPP_SCORE", "size"))
         .sort_values("avg_caasp", ascending=False)
     )
 
     plt.figure(figsize=(9, 12))
     plt.barh(county["County"], county["avg_caasp"])
     plt.gca().invert_yaxis()
-    plt.title("Average CAASP Score by County")
-    plt.xlabel("Average CAASP score")
+    plt.title("Average CAASPP Score by County")
+    plt.xlabel("Average CAASPP score")
     plt.ylabel("County")
     plt.tight_layout()
     plt.savefig(FIG_DIR / "avg_caasp_by_county.png", dpi=200)
@@ -289,9 +309,9 @@ def bar_avg_caasp_by_district(df: pd.DataFrame, min_schools: int = 2, top_n: int
     FIG_DIR.mkdir(exist_ok=True)
 
     district = (
-        df.dropna(subset=["CAASP_SCORE"])
+        df.dropna(subset=["CAASPP_SCORE"])
         .groupby(["County", "District"], as_index=False)
-        .agg(avg_caasp=("CAASP_SCORE", "mean"), n=("CAASP_SCORE", "size"))
+        .agg(avg_caasp=("CAASPP_SCORE", "mean"), n=("CAASPP_SCORE", "size"))
     )
 
     district = district[district["n"] >= min_schools].sort_values("avg_caasp", ascending=False)
@@ -302,8 +322,8 @@ def bar_avg_caasp_by_district(df: pd.DataFrame, min_schools: int = 2, top_n: int
     plt.figure(figsize=(10, 12))
     plt.barh(plot_df["Label"], plot_df["avg_caasp"])
     plt.gca().invert_yaxis()
-    plt.title(f"Top {top_n} Districts by Average CAASP Score")
-    plt.xlabel("Average CAASP score")
+    plt.title(f"Top {top_n} Districts by Average CAASPP Score")
+    plt.xlabel("Average CAASPP score")
     plt.ylabel("District")
     plt.tight_layout()
     plt.savefig(FIG_DIR / "avg_caasp_by_district_top.png", dpi=200)
@@ -312,66 +332,17 @@ def bar_avg_caasp_by_district(df: pd.DataFrame, min_schools: int = 2, top_n: int
     return district
 
 
-def ols_lat_lon_caasp(df: pd.DataFrame) -> pd.DataFrame:
-    reg_df = df.dropna(subset=["CAASP_SCORE", "Latitude", "Longitude"]).copy()
-
-    y = pd.to_numeric(reg_df["CAASP_SCORE"], errors="coerce").to_numpy()
-    x_raw = reg_df[["Latitude", "Longitude"]].apply(pd.to_numeric, errors="coerce")
-
-    clean = pd.concat([pd.Series(y, name="CAASP_SCORE"), x_raw.reset_index(drop=True)], axis=1).dropna()
-
-    y = clean["CAASP_SCORE"].to_numpy(dtype=float)
-    X_vars = clean[["Latitude", "Longitude"]].to_numpy(dtype=float)
-
-    X = np.column_stack([np.ones(len(X_vars)), X_vars])
-    names = ["Intercept", "Latitude", "Longitude"]
-
-    beta = np.linalg.lstsq(X, y, rcond=None)[0]
-    y_hat = X @ beta
-    residuals = y - y_hat
-
-    n = len(y)
-    p = X.shape[1]
-    df_resid = n - p
-
-    sse = float(np.sum(residuals ** 2))
-    sigma2_hat = sse / df_resid
-    cov_beta = sigma2_hat * np.linalg.pinv(X.T @ X)
-
-    se = np.sqrt(np.diag(cov_beta))
-    t_stats = beta / se
-    p_values = 2 * (1 - stats.t.cdf(np.abs(t_stats), df=df_resid))
-
-    ss_total = float(np.sum((y - y.mean()) ** 2))
-    r2 = 1 - sse / ss_total
-
-    result = pd.DataFrame({
-        "term": names,
-        "estimate": beta,
-        "std_error": se,
-        "t_stat": t_stats,
-        "p_value": p_values,
-    })
-
-    result.attrs["n"] = n
-    result.attrs["df_resid"] = df_resid
-    result.attrs["sse"] = sse
-    result.attrs["r2"] = r2
-
-    return result
-
-
 def chi_square_independence_location_score(
     df: pd.DataFrame,
     lat_bins: int = 4,
     lon_bins: int = 4,
 ):
-    test_df = df.dropna(subset=["CAASP_SCORE", "Latitude", "Longitude"]).copy()
+    test_df = df.dropna(subset=["CAASPP_SCORE", "Latitude", "Longitude"]).copy()
 
     test_df["LatBin"] = pd.qcut(test_df["Latitude"], q=lat_bins, duplicates="drop")
     test_df["LonBin"] = pd.qcut(test_df["Longitude"], q=lon_bins, duplicates="drop")
     test_df["LocationBin"] = test_df["LatBin"].astype(str) + " | " + test_df["LonBin"].astype(str)
-    test_df["ScoreCat"] = test_df["CAASP_SCORE"].astype(int).astype(str)
+    test_df["ScoreCat"] = test_df["CAASPP_SCORE"].astype(int).astype(str)
 
     observed = pd.crosstab(test_df["LocationBin"], test_df["ScoreCat"])
 
@@ -387,96 +358,43 @@ def chi_square_independence_location_score(
     }
 
 
-def ols_coe_size_caasp(df: pd.DataFrame) -> pd.DataFrame:
+def ols_elements(df: pd.DataFrame, predictors: list[str]) -> pd.DataFrame:
+    print("OLS ELEMENTS START: ", ", ".join(predictors))
+    
+    display_names = {
+        "coe_size": "COE Size",
+        "median_household_income": "Median household income",
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+    }
+
     reg_df = df.copy()
-    reg_df["CAASP_SCORE"] = pd.to_numeric(reg_df["CAASP_SCORE"], errors="coerce")
-
-    #coe = (
-    #    reg_df.dropna(subset=["CAASP_SCORE"])
-    #    .groupby("County", as_index=False)
-    #    .agg(
-    #        avg_caasp=("CAASP_SCORE", "mean"),
-    #        coe_size=("School", "count"),
-    #    )
-    #)
-    coe = (
-        reg_df.groupby("County", as_index=False)
-        .agg(
-            avg_caasp=("CAASP_SCORE", "mean"),
-            coe_size=("School", "count"),
-            n_caasp=("CAASP_SCORE", "count"),
-        )
-        .dropna(subset=["avg_caasp"])
-    )
-
-    y = coe["avg_caasp"].to_numpy(dtype=float)
-    x = coe["coe_size"].to_numpy(dtype=float)
-
-    X = np.column_stack([np.ones(len(x)), x])
-    names = ["Intercept", "COE size"]
-
-    beta = np.linalg.lstsq(X, y, rcond=None)[0]
-    y_hat = X @ beta
-    residuals = y - y_hat
-
-    n = len(y)
-    p = X.shape[1]
-    df_resid = n - p
-
-    sse = float(np.sum(residuals ** 2))
-    sigma2_hat = sse / df_resid
-    cov_beta = sigma2_hat * np.linalg.pinv(X.T @ X)
-
-    se = np.sqrt(np.diag(cov_beta))
-    t_stats = beta / se
-    p_values = 2 * (1 - stats.t.cdf(np.abs(t_stats), df=df_resid))
-
-    ss_total = float(np.sum((y - y.mean()) ** 2))
-    r2 = 1 - sse / ss_total
-
-    result = pd.DataFrame({
-        "term": names,
-        "estimate": beta,
-        "std_error": se,
-        "t_stat": t_stats,
-        "p_value": p_values,
-    })
-
-    result.attrs["n"] = n
-    result.attrs["df_resid"] = df_resid
-    result.attrs["r2"] = r2
-
-    return result
-
-
-def ols_coe_size_income_caasp(df: pd.DataFrame) -> pd.DataFrame:
-    reg_df = df.copy()
-    reg_df["CAASP_SCORE"] = pd.to_numeric(reg_df["CAASP_SCORE"], errors="coerce")
+    reg_df["CAASPP_SCORE"] = pd.to_numeric(reg_df["CAASPP_SCORE"], errors="coerce")
     reg_df["median_household_income"] = pd.to_numeric(
         reg_df["median_household_income"],
         errors="coerce",
     )
+    reg_df["latitude"] = pd.to_numeric(reg_df["Latitude"], errors="coerce")
+    reg_df["longitude"] = pd.to_numeric(reg_df["Longitude"], errors="coerce")
 
     coe = (
         reg_df.groupby("County", as_index=False)
         .agg(
-            avg_caasp=("CAASP_SCORE", "mean"),
+            avg_caasp=("CAASPP_SCORE", "mean"),
             coe_size=("School", "count"),
-            n_caasp=("CAASP_SCORE", "count"),
+            n_caasp=("CAASPP_SCORE", "count"),
             median_household_income=("median_household_income", "first"),
+            latitude=("latitude", "first"),
+            longitude=("longitude", "first")
         )
-        .dropna(subset=["avg_caasp", "coe_size", "median_household_income"])
+        .dropna(subset=["avg_caasp", *predictors])
     )
 
+    print(" - regress")
+
     y = coe["avg_caasp"].to_numpy(dtype=float)
-
-    X_vars = coe[[
-        "coe_size",
-        "median_household_income",
-    ]].to_numpy(dtype=float)
-
+    X_vars = coe[predictors].to_numpy(dtype=float)
     X = np.column_stack([np.ones(len(X_vars)), X_vars])
-    names = ["Intercept", "COE size", "Median household income"]
 
     beta = np.linalg.lstsq(X, y, rcond=None)[0]
     y_hat = X @ beta
@@ -498,7 +416,7 @@ def ols_coe_size_income_caasp(df: pd.DataFrame) -> pd.DataFrame:
     r2 = 1 - sse / ss_total
 
     result = pd.DataFrame({
-        "term": names,
+        "term": ["Intercept"] + [display_names.get(p, p) for p in predictors],
         "estimate": beta,
         "std_error": se,
         "t_stat": t_stats,
@@ -510,6 +428,82 @@ def ols_coe_size_income_caasp(df: pd.DataFrame) -> pd.DataFrame:
     result.attrs["r2"] = r2
     result.attrs["sse"] = sse
 
+    # fs
+
+    file_annotation = "-".join(predictors)
+
+    # summary statistics
+    print(" - summarize")
+    
+    with open(FIG_DIR / ("regression-summary-" + file_annotation + ".txt"), "w") as f:
+        f.write("OLS: average CAASPP score ~ " + "+".join([display_names[i] for i in predictors]) + "\n\n")
+        f.write(result.to_string(index=False))
+        f.write("\n\n")
+        f.write(f"n = {result.attrs['n']}\n")
+        f.write(f"df_resid = {result.attrs['df_resid']}\n")
+        f.write(f"R^2 = {result.attrs['r2']}\n")
+
+    print(" - big table summarize")
+    add_to_auto_table({
+        "factors": [display_names[i] for i in predictors],
+        "mapped p-values": {
+            display_names[i]: p_values[x + 1]
+            for x, i in enumerate(predictors)
+        },
+        "p-values": p_values,
+        "betas": beta,
+        "t_stats": t_stats,
+        "pearson's r-square": r2,
+        "n": n,
+    })
+
+    # plot
+    print(" - plot")
+
+    output_path = FIG_DIR / ("regression-plot-" + file_annotation + ".png")
+
+    x_col = predictors[-1]
+    x = coe[x_col].to_numpy(dtype=float)
+    y = coe["avg_caasp"].to_numpy(dtype=float)
+
+    # scatter true county values
+    plt.scatter(x, y, label = "Scattered COE average CAASPP scores")
+
+    # line grid over x
+    x_grid = np.linspace(x.min(), x.max(), 100)
+
+    # construct design matrix for line
+    line_df = pd.DataFrame()
+    for pred in predictors:
+        if pred == x_col:
+            line_df[pred] = x_grid
+        else:
+            line_df[pred] = coe[pred].mean()
+
+    X_line = np.column_stack([
+        np.ones(len(line_df)),
+        line_df[predictors].to_numpy(dtype=float),
+    ])
+
+    beta = result["estimate"].to_numpy(dtype=float)
+    y_line = X_line @ beta
+
+    plt.plot(x_grid, y_line, label = "Linear regression")
+    plt.xlabel(x_col)
+    plt.ylabel("Average CAASPP score")
+    
+    textbox = ["Linear regression: average CAASPP score ~ " + "+".join([display_names[i] for i in predictors])]
+    if len(predictors) > 1:
+        textbox.append("Hidden variables (set to their average for this plot): " + ", ".join([display_names[i] for i in predictors[-1:]]))
+    textbox = '\n'.join(textbox)
+    
+    bbox = dict(boxstyle='square', facecolor='lavender', alpha=0.5)
+    plt.text(1.1, 1, textbox, fontsize=10, bbox=bbox, verticalalignment='top')
+    
+    plt.tight_layout()
+    plt.savefig(output_path, dpi=200)
+    plt.close()
+
     return result
 
 
@@ -519,9 +513,9 @@ def plot_coe_size_vs_caasp(df: pd.DataFrame) -> pd.DataFrame:
     coe = (
         df.groupby("County", as_index=False)
         .agg(
-            avg_caasp=("CAASP_SCORE", "mean"),
+            avg_caasp=("CAASPP_SCORE", "mean"),
             coe_size=("School", "count"),
-            n_caasp=("CAASP_SCORE", "count"),
+            n_caasp=("CAASPP_SCORE", "count"),
         )
         .dropna(subset=["avg_caasp"])
     )
@@ -558,9 +552,9 @@ def plot_coe_size_vs_caasp(df: pd.DataFrame) -> pd.DataFrame:
             alpha=0.7,
         )
 
-    plt.title("Average CAASP Score vs. COE Size")
+    plt.title("Average CAASPP Score vs. COE Size")
     plt.xlabel("COE Size (Number of Schools)")
-    plt.ylabel("Average CAASP Score")
+    plt.ylabel("Average CAASPP Score")
     plt.legend()
 
     plt.tight_layout()
@@ -572,7 +566,7 @@ def plot_coe_size_vs_caasp(df: pd.DataFrame) -> pd.DataFrame:
 
 def run_preliminary_stats(df: pd.DataFrame) -> None:
     df = df.copy()
-    df["CAASP_SCORE"] = pd.to_numeric(df["CAASP_SCORE"], errors="coerce")
+    df["CAASPP_SCORE"] = pd.to_numeric(df["CAASPP_SCORE"], errors="coerce")
     print(df.describe())
     
     FIG_DIR.mkdir(exist_ok=True)
@@ -585,17 +579,19 @@ def run_preliminary_stats(df: pd.DataFrame) -> None:
     district = bar_avg_caasp_by_district(df)
     district.to_csv(FIG_DIR / "avg_caasp_by_district.csv", index=False)
 
-    reg = ols_lat_lon_caasp(df)
-    reg.to_csv(FIG_DIR / "lat_lon_regression.csv", index=False)
+    #reg = ols_lat_lon_caasp(df)
+    #reg.to_csv(FIG_DIR / "lat_lon_regression.csv", index=False)
+    #
+    #with open(FIG_DIR / "lat_lon_regression_summary.txt", "w") as f:
+    #    f.write("OLS: CAASPP_SCORE ~ Latitude + Longitude\n\n")
+    #    f.write(reg.to_string(index=False))
+    #    f.write("\n\n")
+    #    f.write(f"n = {reg.attrs['n']}\n")
+    #    f.write(f"df_resid = {reg.attrs['df_resid']}\n")
+    #    f.write(f"SSE = {reg.attrs['sse']}\n")
+    #    f.write(f"R^2 = {reg.attrs['r2']}\n")
 
-    with open(FIG_DIR / "lat_lon_regression_summary.txt", "w") as f:
-        f.write("OLS: CAASP_SCORE ~ Latitude + Longitude\n\n")
-        f.write(reg.to_string(index=False))
-        f.write("\n\n")
-        f.write(f"n = {reg.attrs['n']}\n")
-        f.write(f"df_resid = {reg.attrs['df_resid']}\n")
-        f.write(f"SSE = {reg.attrs['sse']}\n")
-        f.write(f"R^2 = {reg.attrs['r2']}\n")
+    ols_elements(df, ["latitude", "longitude"])
 
     chi = chi_square_independence_location_score(df)
     chi["observed"].to_csv(FIG_DIR / "chi_square_observed.csv")
@@ -604,36 +600,43 @@ def run_preliminary_stats(df: pd.DataFrame) -> None:
     plot_caasp_county_map(df)
 
     with open(FIG_DIR / "chi_square_location_score_summary.txt", "w") as f:
-        f.write("Chi-square test: binned location vs CAASP score\n\n")
+        f.write("Chi-square test: binned location vs CAASPP score\n\n")
         f.write(f"chi2 = {chi['chi2']}\n")
         f.write(f"p_value = {chi['p_value']}\n")
         f.write(f"dof = {chi['dof']}\n")
     
-    coe_reg = ols_coe_size_caasp(df)
-    coe_reg.to_csv(FIG_DIR / "coe_size_regression.csv", index=False)
-    
-    with open(FIG_DIR / "coe_size_regression_summary.txt", "w") as f:
-        f.write("OLS: average CAASP score ~ COE size\n\n")
-        f.write(coe_reg.to_string(index=False))
-        f.write("\n\n")
-        f.write(f"n = {coe_reg.attrs['n']}\n")
-        f.write(f"df_resid = {coe_reg.attrs['df_resid']}\n")
-        f.write(f"R^2 = {coe_reg.attrs['r2']}\n")
-    
-    coe_summary = plot_coe_size_vs_caasp(df)
-    coe_summary.to_csv(FIG_DIR / "coe_summary.csv", index=False)
+    #coe_reg = ols_coe_size_caasp(df)
+    #coe_reg.to_csv(FIG_DIR / "coe_size_regression.csv", index=False)
+    #
+    #with open(FIG_DIR / "coe_size_regression_summary.txt", "w") as f:
+    #    f.write("OLS: average CAASPP score ~ COE size\n\n")
+    #    f.write(coe_reg.to_string(index=False))
+    #    f.write("\n\n")
+    #    f.write(f"n = {coe_reg.attrs['n']}\n")
+    #    f.write(f"df_resid = {coe_reg.attrs['df_resid']}\n")
+    #    f.write(f"R^2 = {coe_reg.attrs['r2']}\n")
+    #
+    #coe_summary = plot_coe_size_vs_caasp(df)
+    #coe_summary.to_csv(FIG_DIR / "coe_summary.csv", index=False)
 
-    coe_income_reg = ols_coe_size_income_caasp(df)
-    coe_income_reg.to_csv(FIG_DIR / "coe_size_income_regression.csv", index=False)
-    
-    with open(FIG_DIR / "coe_size_income_regression_summary.txt", "w") as f:
-        f.write("OLS: average CAASP score ~ COE size + median household income\n\n")
-        f.write(coe_income_reg.to_string(index=False))
-        f.write("\n\n")
-        f.write(f"n = {coe_income_reg.attrs['n']}\n")
-        f.write(f"df_resid = {coe_income_reg.attrs['df_resid']}\n")
-        f.write(f"SSE = {coe_income_reg.attrs['sse']}\n")
-        f.write(f"R^2 = {coe_income_reg.attrs['r2']}\n")
+    ols_elements(df, ["coe_size"])
+
+    #coe_income_reg = ols_coe_size_income_caasp(df)
+    #coe_income_reg.to_csv(FIG_DIR / "coe_size_income_regression.csv", index=False)
+    #
+    #with open(FIG_DIR / "coe_size_income_regression_summary.txt", "w") as f:
+    #    f.write("OLS: average CAASPP score ~ COE size + median household income\n\n")
+    #    f.write(coe_income_reg.to_string(index=False))
+    #    f.write("\n\n")
+    #    f.write(f"n = {coe_income_reg.attrs['n']}\n")
+    #    f.write(f"df_resid = {coe_income_reg.attrs['df_resid']}\n")
+    #    f.write(f"SSE = {coe_income_reg.attrs['sse']}\n")
+    #    f.write(f"R^2 = {coe_income_reg.attrs['r2']}\n")
+
+    ols_elements(df, ["coe_size", "median_household_income"])
+
+    with open(FIG_DIR / "big_summary_table.txt", "w") as f:
+        f.write(big_auto_table)
 
 
 def augment(df):

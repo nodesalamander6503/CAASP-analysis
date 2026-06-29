@@ -1,0 +1,10 @@
+OLS: average CAASPP score ~ Latitude+Longitude
+
+     term    estimate  std_error    t_stat  p_value
+Intercept -537.119626 266.461311 -2.015751 0.048722
+ Latitude   -6.667180   2.167030 -3.076644 0.003260
+Longitude   -5.984144   2.696629 -2.219120 0.030623
+
+n = 58
+df_resid = 55
+R^2 = 0.14818121633645776

@@ -1,4 +1,4 @@
-Chi-square test: binned location vs CAASP score
+Chi-square test: binned location vs CAASPP score
 
 chi2 = 5119.284697590099
 p_value = 6.26386241453317e-12

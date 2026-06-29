@@ -1,8 +1,8 @@
-OLS: average CAASP score ~ COE size
+OLS: average CAASPP score ~ COE Size
 
      term   estimate  std_error     t_stat  p_value
 Intercept -70.157407   3.497315 -20.060361  0.00000
- COE size   0.024853   0.009439   2.632980  0.01092
+ COE Size   0.024853   0.009439   2.632980  0.01092
 
 n = 58
 df_resid = 56
